@@ -42,7 +42,7 @@ class OpenAi:
                 answer = response.json()['choices'][0]['text']
                 answer = markdown.markdown(answer)
             else:
-                answer= "问题不能为空"
+                answer= "问题不能为空!"
         else:
             answer = '你的max_tokens或temperature值过大！'
         return answer
