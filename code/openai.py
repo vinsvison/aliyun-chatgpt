@@ -47,5 +47,5 @@ class OpenAi:
             answer = '你的max_tokens或temperature值过大！'
         return answer
 
-ai = OpenAi()
-print(ai.get_answer(prompt='3+5等于几？'))
+# ai = OpenAi()
+# print(ai.get_answer(prompt='3+5等于几？'))
