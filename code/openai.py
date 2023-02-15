@@ -13,9 +13,9 @@ class OpenAi:
         self.model = "text-davinci-003"
         self.url = "https://api.openai.com/v1/completions"
         # 替换为你的api_key <https://beta.openai.com/account/api-keys>
-        self.keys = "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"
+        self.keys = "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"
         # 这个是设置回答的长度,最大可以设置到4096 (免费额度为$18,该值影响你的用量)
-        self.max_tokens = 4096
+        self.max_tokens = 3800
         # 值越高意味着模型将承担更多风险。对于更具创造性的应用程序，请尝试 0.9,建议0.5-0.6
         self.temperature = 0.5
     def get_answer(self,prompt):
@@ -36,8 +36,8 @@ class OpenAi:
                 }
                 # Make the API request
                 response = requests.post(self.url, headers=headers, json=data)
+                print(response)
 
-                # Print the response
 
                 answer = response.json()['choices'][0]['text']
                 answer = markdown.markdown(answer)
@@ -47,5 +47,5 @@ class OpenAi:
             answer = '你的max_tokens或temperature值过大！'
         return answer
 
-# ai = OpenAi()
-# print(ai.get_answer(prompt='你好'))
+ai = OpenAi()
+print(ai.get_answer(prompt='3+5等于几？'))
